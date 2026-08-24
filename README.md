@@ -1,3 +1,5 @@
+<img src="docs/icon.svg" width="72" height="72" alt="">
+
 # Agenxy Homebrew tap
 
 Formulae for Agenxy projects. Remap and Supgang are updated by hand from that

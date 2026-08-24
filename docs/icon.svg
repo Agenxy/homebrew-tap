@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Homebrew tap">
+  <title>Homebrew tap</title>
+  <!-- A tap, because that is what the repository is: `brew tap agenxy/tap`.
+       The word is the thing, so the mark is literal rather than abstract — this
+       is the one repository in the org whose name is already an object.
+
+       The drop is the only coloured element. Installing is the event; the tap
+       standing there plumbed in is the state. It is also the only part that
+       moves, which is what an accent should mark.
+
+       Tile, stroke weight and accent rule follow docs/icon.svg in Agenxy/dibs.
+       Accent is the pigment-1 token at oklch(70% 0.145 32) for a dark surface. -->
+  <rect width="32" height="32" rx="7.5" fill="#131518"/>
+  <g fill="none" stroke="#dcdee2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7.2 11.4 H19.4 V16.4"/>
+    <path d="M13 11.4 V7.6"/>
+  </g>
+  <circle cx="19.4" cy="21.6" r="2.9" fill="#ea7963"/>
+</svg>
