@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Homebrew tap">
   <title>Homebrew tap</title>
-  <!-- A tap, because that is what the repository is: `brew tap agenxy/tap`.
+  <!-- A tap, because that is what the repository is: the tap this repository is.
        The word is the thing, so the mark is literal rather than abstract — this
        is the one repository in the org whose name is already an object.
 
@@ -8,8 +8,8 @@
        standing there plumbed in is the state. It is also the only part that
        moves, which is what an accent should mark.
 
-       Tile, stroke weight and accent rule follow docs/icon.svg in Agenxy/dibs.
-       Accent is the pigment-1 token at oklch(70% 0.145 32) for a dark surface. -->
+       Tile, stroke weight and accent rule are the shared mark conventions.
+       Accent is the madder pigment at oklch(70% 0.145 32) for a dark surface. -->
   <rect width="32" height="32" rx="7.5" fill="#131518"/>
   <g fill="none" stroke="#dcdee2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
     <path d="M7.2 11.4 H19.4 V16.4"/>
