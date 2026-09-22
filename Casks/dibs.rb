@@ -2,22 +2,22 @@
 cask "dibs" do
   app "Dibs.app"
 
-  version "0.0.7"
+  version "0.0.9"
 
   on_macos do
     on_arm do
-      sha256 "4e1fedac0370b4d60ca29d0c8b3e24adfeef2736046e666a324e67877bbd3f0b"
+      sha256 "279b6365896c904adc3958cf0041333ab0a88e57f257ca93fc2badcc13c17977"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "f87de1c85ddc7aa122330e53aa7e3cebc4c5a90c7f23495822e74d102ca6cf25"
+      sha256 "339a999b9c759a50a4e627d54f99597c580236f06d2f24d1e3bf5e2dc4d9c695"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "fc3efb7e32d908406ee5a94fa4f900edfc3d34e3cee3e40c3fd4f0117ef0a9a5"
+      sha256 "fec8fd926621572b64a323b595876da4fccd8a1612cc7903bb59d7581195effe"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_linux_arm64.tar.gz"
     end
   end
