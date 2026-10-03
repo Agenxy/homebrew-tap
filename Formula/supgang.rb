@@ -2,7 +2,7 @@ class Supgang < Formula
   desc "Peer address discovery for computers whose addresses change"
   homepage "https://github.com/Agenxy/supgang"
   url "https://github.com/Agenxy/supgang/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "1b266b83c7befd6ae067023bb5e05b897e90ce0341b96831c4fd8f3357767fcc"
+  sha256 "496f775fc07d2b4052bc675b140457a802affc4168f01104f4330958e8d126f6"
   license "Apache-2.0"
 
   depends_on "rust" => :build
