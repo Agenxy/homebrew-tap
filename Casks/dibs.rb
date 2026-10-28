@@ -2,22 +2,22 @@
 cask "dibs" do
   app "Dibs.app"
 
-  version "0.0.15"
+  version "0.0.16"
 
   on_macos do
     on_arm do
-      sha256 "5a38013d8853c48e7429d982db2f50364c8844bb8034b226638f5b1b21e8442e"
+      sha256 "e54467e8f004940498b8ca88beb6a32e1de48048994e05a325ce954e4caec087"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "d9fcd72bc7b87f478fb959756efb8388dd735a00ec8569f789decd5663a90c06"
+      sha256 "fa91d5353b472711fd43516830a30bcb9cf270baae595993a8f411ba3cb0c6af"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "6f75986dc3ed7532a34adbf4a0b4518b69cda53b13345afacddcfe328ee57dbf"
+      sha256 "c6e201821d96b7111d6d5ea716496ed7af426285d18e30ea2c86ed4c8d63df25"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_linux_arm64.tar.gz"
     end
   end
@@ -49,6 +49,12 @@ cask "dibs" do
                    # "developer cannot be verified" dialog that the
                    # documentation says is impossible.
                    must_succeed: false
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Dibs.app"],
+                   must_succeed: false
+    system_command "#{staged_path}/dibs",
+                   args: ["configure", "--service"],
+                   must_succeed: true
   end
 
   # No zap stanza required
@@ -56,10 +62,27 @@ cask "dibs" do
   caveats <<~EOS
     Start the daemon and point your agents at it:
 
-      dibd &                  # 127.0.0.1:4777, data in ~/.dibs
+      dibs configure --service # Dibs.app background service (existing board retained)
       dibs mcp-config          # MCP config to add to your harness
       dibs web                 # the board; Touch ID unlocks it on this Mac
       dibs doctor              # what is quietly broken, and how to fix it
+
+    macOS may require Dibs background-item approval under System Settings >
+    General > Login Items & Extensions. Desktop/Documents/Downloads reads
+    are requested once: requested is not granted. Check System Settings >
+    Privacy & Security > Files & Folders > Dibs. A first move to the app-owned
+    service or a change between source and release signing can need a fresh grant.
+
+    Before brew uninstall, run: dibs configure --service --remove
+    If already uninstalled, restore/remove/uninstall in this order:
+      brew install --cask agenxy/tap/dibs
+      dibs configure --service --remove
+      brew uninstall --cask dibs
+    Restoring Dibs briefly starts the service before removal. A registration
+    with a missing program cannot start it; doctor checks whether a job is
+    still loaded before calling the leftover record inert. You can switch off
+    the leftover row meanwhile in System Settings > General > Login Items &
+    Extensions > Allow in the Background > Dibs.
 
     Signed for provenance with cosign, but not notarised by Apple, so this
     cask TRIES to clear the quarantine flag on install. It is not treated as
