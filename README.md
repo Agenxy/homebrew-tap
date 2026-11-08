@@ -5,6 +5,11 @@
 Formulae for Agenxy projects. Remap and Supgang are updated by hand from that
 project's release; the Dibs cask is written by GoReleaser when Dibs tags one.
 
+The Dibs release pushes its cask to a `cask-<version>` branch, and
+`cask-merge` merges it once the cask is byte-for-byte the `dibs.rb` asset of
+that version's published, immutable release, newer than the one on main, and
+the only file changed. Anything else is refused and left for a person.
+
 ```sh
 brew install --cask agenxy/tap/dibs
 brew install agenxy/tap/remap

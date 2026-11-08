@@ -1,0 +1,19 @@
+# Marks a pushed cask branch for cask-merge.yml, and does nothing else.
+#
+# A push runs the workflow file from the PUSHED commit, so anything here is
+# code the branch pusher wrote. That is why it has no permissions and no steps
+# that matter: the verification and the merge live in cask-merge.yml, which
+# GitHub always runs from main's copy when this one completes.
+name: cask-branch
+
+on:
+  push:
+    branches: ["cask-*"]
+
+permissions: {}
+
+jobs:
+  noted:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 0
