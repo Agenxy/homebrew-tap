@@ -1,0 +1,36 @@
+# Verifies a Dibs cask branch against the published release and merges it.
+#
+# workflow_run always runs main's definition of this file and checks out main,
+# so neither the workflow nor the script can be changed by the branch it
+# judges. See .github/scripts/cask_merge.py for what is checked.
+name: cask-merge
+
+on:
+  workflow_run:
+    workflows: [cask-branch]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: cask-merge
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: github.event.workflow_run.event == 'push' && startsWith(github.event.workflow_run.head_branch, 'cask-')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - run: uv run --script .github/scripts/cask_merge.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
