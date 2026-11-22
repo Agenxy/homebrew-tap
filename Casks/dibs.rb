@@ -50,20 +50,20 @@ cask "dibs" do
     EOS
   end
 
-  version "0.0.18"
+  version "0.0.19"
 
   on_macos do
     depends_on arch: :arm64
-    sha256 "1d70bb500e0f76700af286cdf5de4587afbb38700704f74bafc87de7c50567d0"
+    sha256 "03db324a0a80105c42072bcc751b5d0a08a2e9829ededca3e36789383301db4b"
     url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_darwin_arm64.tar.gz"
   end
   on_linux do
     on_arm do
-      sha256 "24fda29874520cb54d5bda2cd958f0bd1ee08b15adbdde43736f796fabb33c52"
+      sha256 "11400f8925271eef646eddd563877b6cab783d0bf724afa75047803954b3b550"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "fed938399fc1fded974b79f372bbbd8a33340ceb792f94077579d3b1bdc9fc61"
+      sha256 "191931246619837c616a4002a09683569733033746c2156b083f3cf9a082c6fa"
       url "https://github.com/Agenxy/dibs/releases/download/v#{version}/dibs_#{version}_linux_amd64.tar.gz"
     end
   end
